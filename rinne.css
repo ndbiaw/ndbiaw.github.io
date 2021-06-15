@@ -67,6 +67,65 @@
           user-select: none;
   order: 1;
 }
+.typeWindows-1za-n7 {
+  height: 18px;
+  width: 100vw;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background: rgba(0, 0, 0, calc(var(--background-shading) * .6));
+  box-shadow: 0 0 20px rgba(0, 0, 0, calc(var(--background-shading) * .6));
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm {
+  position: static;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  order: 1;
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm:before, .typeWindows-1za-n7 > .wordmark-2iDDfm:after {
+  margin-left: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+  order: 1;
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm:before {
+  content: "ClearVision";
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-shadow: 0 0 3px #000;
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm:after {
+  content: "v6.1.0";
+  color: rgba(255, 255, 255, 0.3);
+  font-family: var(--code-font);
+  font-size: 10px;
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm > svg {
+  filter: drop-shadow(0 0 5px var(--main-color));
+}
+.typeWindows-1za-n7 > .wordmark-2iDDfm > svg > path {
+  fill: var(--main-color);
+}
+.typeWindows-1za-n7 > .winButton-iRh8-Z {
+  top: -2px;
+  opacity: 0.7;
+  transition: all 0.15s ease-in-out;
+}
+.typeWindows-1za-n7 > .winButton-iRh8-Z:hover {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+.typeWindows-1za-n7 > .winButtonClose-1HsbF-:hover {
+  background: var(--danger-color);
+}
 .theme-dark .colorBrand-ROmMP1 {
   color: #c5536c;
 }
