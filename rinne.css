@@ -667,7 +667,7 @@
 }
 
 :root .membersWrap-2h-GB4::before {
-  content: "Member list";
+  content: "Danh Sách Thành Viên";
   position: absolute;
   top: -60px;
   z-index: 1;
@@ -681,6 +681,9 @@
   color: var(--header-primary);
   background-color: var(--background-secondary);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+:root .size14-e6ZScH .title-eS5yk3 {
+  content: "Kanna iu Rinne :3";
 }
 :root .membersWrap-2h-GB4 .members-1998pB {
   width: 100%;
