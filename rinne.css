@@ -682,7 +682,16 @@
   background-color: var(--background-secondary);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
-:root .size14-e6ZScH .title-eS5yk3 {
+:root .title-eS5yk3 span {
+  display: none;
+}
+:root .title-eS5yk3:after {
+  content: "Kanna iu Rinne :3";
+}
+:root .size14-e6ZScH span {
+  display: none;
+}
+:root .size14-e6ZScH:after {
   content: "Kanna iu Rinne :3";
 }
 :root .membersWrap-2h-GB4 .members-1998pB {
@@ -1377,7 +1386,7 @@
   background-color: var(--background-primary);
 }
 :root .nowPlayingColumn-2sl4cE::before {
-  content: "Friends activity";
+  content: "Hoạt Động Của Bạn Bè";
   position: absolute;
   top: -60px;
   z-index: 1;
