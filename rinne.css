@@ -682,17 +682,11 @@
   background-color: var(--background-secondary);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
-:root .title-eS5yk3 span {
+:root .subtext-3CDbHg div {
   display: none;
 }
-:root .title-eS5yk3:after {
-  content: "Kanna iu Rinne :3";
-}
-:root .size14-e6ZScH span {
-  display: none;
-}
-:root .size14-e6ZScH:after {
-  content: "Kanna iu Rinne :3";
+:root .subtext-3CDbHg:after{
+  content: " - iu Rinne :3";
 }
 :root .membersWrap-2h-GB4 .members-1998pB {
   width: 100%;
