@@ -13,10 +13,6 @@
   --xbox: #53a853;
 }
 
-.module {
-  cursor: url('https://i.postimg.cc/76fyKgG4/image.png'), auto;	
-}
-
 .theme-dark {
   --text-normal: #f8e1e5;
   --header-primary: #f8e1e5;
