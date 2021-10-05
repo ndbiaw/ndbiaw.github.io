@@ -1,240 +1,135 @@
 <style>
-	@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans+Narrow');
-$in-out-cubic: cubic-bezier(0.65, 0.05, 0.36, 1);
-@mixin transform($transform...) {
-    -webkit-transform: $transform;
-    -moz-transform: $transform;
-    -ms-transform: $transform;
-    -o-transform: $transform;
-    transform: $transform;
-}
-@mixin transform-origin($transform-origin...) {
-    -webkit-transform-origin: $transform-origin;
-    -moz-transform-origin: $transform-origin;
-    -ms-transform-origin: $transform-origin;
-    -o-transform-origin: $transform-origin;
-    transform-origin: $transform-origin;
-}
-@mixin key-frame($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-    @-o-keyframes #{$name} {
-        @content;
-    }
-    /* Standard syntax */
-    @keyframes #{$name} {
-        @content;
-    }
-}
-@mixin animation($animation...) {
-    -webkit-animation: $animation;
-    -moz-animation: $animation;
-    -o-animation: $animation;
-    animation: $animation;
-}
-@mixin animation-delay($animation...) {
-    -webkit-animation-delay: $animation;
-    -moz-animation-delay: $animation;
-    -o-animation-delay: $animation;
-    animation-delay: $animation;
-}
-body{
-  overflow:hidden;
-  font-family: 'Open Sans', sans-serif;
-}
-.not-found {
-    position: relative;
-    overflow: hidden;
-    margin:0 -20vw;
-    height:110vh;
-    [class*="wave"] {
-        position: absolute;
-    }
-    div {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        @for $i from 1 through 7 {
-            &.wave-#{$i} {
-                background: url(http://res.cloudinary.com/andrewhani/image/upload/v1524501869/404/wave-#{$i}.svg);
-            }
-        }
-      &.sky-bg{
-        background: url(http://res.cloudinary.com/andrewhani/image/upload/v1524821915/404/bg-1_gvybzk.svg);
-        height: 100%;
-      }
-        &[class*="wave"]:not(.wave-4) {
-            height: calc(100% - 250px);
-        }
-        &.wave-4 {
-            height: calc(100% - 430px);
-        }
-    }
-    .boat {
-        position: absolute;
-        top: 0;
-        right: 15%;
-        width: 150px;
-        @include animation(boat 15s $in-out-cubic infinite);
-    }
-    .wave-lost {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        color: #fff;
-        font-size: 20rem;
-        @include animation(surf 2s);
-        span {
-            float: left;
-            @include animation(float 3s ease-in infinite);
-            &:nth-child(2) {
-                @include animation-delay(2.5s);
-            }
-            &:nth-child(3) {
-                @include animation-delay(4.5s);
-            }
-        }
-    }
-    .wave-island {
-        position: absolute;
-        top: 130px;
-        left: 20%;
-        padding: 10px;
-        width: 170px;
-    }
-    .wave-message {
-        position: absolute;
-        bottom: 100px;
-        left: 50%;
-        padding-right: 50%;
-        height: auto !important;
-        color: #fff;
-        font-size: 3rem;
-        text-align: left;
-        @include animation(wave-message 1s);
-    }
+	@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+
+html {
+  min-height: 100%;
 }
 
-@include key-frame(boat) {
-    0% {
-        @include transform-origin(left);
-        @include transform(rotate(-15deg) translate3d(400px, 0px, 0px));
-    }
-    20% {
-        @include transform-origin(left);
-        @include transform(rotate(15deg) translate3d(-20vw, 0, 0px));
-    }
-    25% {
-        @include transform-origin(left);
-        @include transform(rotate(-7deg) translate3d(-25vw, 0, 0px));
-    }
-    50% {
-        @include transform-origin(left);
-        @include transform(rotate(5deg) translate3d(-50vw, 0, 0px));
-    }
-    60% {
-        @include transform-origin(left);
-        @include transform(rotate(-1deg) translate3d(-60vw, 0, 0px));
-    }
-    100% {
-        @include transform-origin(left);
-        @include transform(rotate(2deg) translate3d(-100vw, 0, 0px));
-    }
+body {
+  box-sizing: border-box;
+  height: 100%;
+  background-color: #000000;
+  background-image: radial-gradient(#11581E, #041607), url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Inconsolata', Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: rgba(128, 255, 128, 0.8);
+  text-shadow:
+      0 0 1ex rgba(51, 255, 51, 1),
+      0 0 2px rgba(255, 255, 255, 0.8);
 }
 
-@include key-frame(float) {
-    0%,
-    100% {
-        @include transform(rotate(3deg) translate3d(0px, -10px, 0px));
-    }
-    50% {
-        @include transform(rotate(-3deg) translate3d(0px, 10px, 0px));
-    }
+.noise {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  opacity: .02;
 }
 
-@include key-frame(surf) {
-    0% {
-        @include transform-origin(right);
-        @include transform(rotate(15deg) translate3d(0, 800px, 0));
-    }
-    30% {
-        @include transform-origin(right);
-        @include transform(rotate(15deg) translate3d(0, 500px, 0));
-    }
-    100% {
-        @include transform-origin(right);
-        @include transform(rotate(0) translate3d(0, 0, 0px));
-    }
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+      repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0) 100%);
+  background-size: auto 4px;
+  z-index: 1;
 }
-@include key-frame(wave-message){
-    0%{
-        @include transform(translate3d(0, 120%, 0));
-    }
-    100%{
-        @include transform(translate3d(0, 0, 0)); 
-    }
+
+.overlay::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(32, 128, 32, 0.2) 2%,
+      rgba(32, 128, 32, 0.8) 3%,
+      rgba(32, 128, 32, 0.2) 3%,
+      transparent 100%);
+  background-repeat: no-repeat;
+  animation: scan 7.5s linear 0s infinite;
+}
+
+@keyframes scan {
+  0%        { background-position: 0 -100vh; }
+  35%, 100% { background-position: 0 100vh; }
+}
+
+.terminal {
+  box-sizing: inherit;
+  position: absolute;
+  height: 100%;
+  width: 1000px;
+  max-width: 100%;
+  padding: 4rem;
+  text-transform: uppercase;
+}
+
+.output {
+  color: rgba(128, 255, 128, 0.8);
+  text-shadow:
+      0 0 1px rgba(51, 255, 51, 0.4),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.output::before {
+  content: "> ";
+}
+
+/*
+.input {
+  color: rgba(192, 255, 192, 0.8);
+  text-shadow:
+      0 0 1px rgba(51, 255, 51, 0.4),
+      0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.input::before {
+  content: "$ ";
+}
+*/
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a::before {
+  content: "[";
+}
+
+a::after {
+  content: "]";
+}
+
+.errorcode {
+  color: white;
 }
 </style>
-<script>
-	var parallax = function(e) {
-    var windowWidth = $(window).width();
-    if (windowWidth < 768) return;
-    var halfFieldWidth = $(".parallax").width() / 2,
-      halfFieldHeight = $(".parallax").height() / 2,
-      fieldPos = $(".parallax").offset(),
-      x = e.pageX,
-      y = e.pageY - fieldPos.top,
-      newX = (x - halfFieldWidth) / 30,
-      newY = (y - halfFieldHeight) / 30;
-    $('.parallax [class*="wave"]').each(function(index) {
-      $(this).css({
-        transition: "",
-        transform:
-          "translate3d(" + index * newX + "px," + index * newY + "px,0px)"
-      });
-    });
-  },
-  stopParallax = function() {
-    $('.parallax [class*="wave"]').css({
-      transform: "translate(0px,0px)",
-      transition: "all .7s"
-    });
-    $timeout(function() {
-      $('.parallax [class*="wave"]').css("transition", "");
-    }, 700);
-  };
-$(document).ready(function() {
-  $(".not-found").on("mousemove", parallax);
-  $(".not-found").on("mouseleave", stopParallax);
-});
-</script>
-<div class="not-found parallax">
-            <div class="sky-bg"></div>
-            <div class="wave-7"></div>
-            <div class="wave-6"></div>
-            <a class="wave-island" href="#">
-                    <img src="http://res.cloudinary.com/andrewhani/image/upload/v1524501929/404/island.svg" alt="Island">
-                </a>
-            <div class="wave-5"></div>
-            <div class="wave-lost wrp">
-                <span>4</span>
-                <span>0</span>
-                <span>4</span>
-            </div>
-            <div class="wave-4"></div>
-            <div class="wave-boat">
-                <img class="boat" src="http://res.cloudinary.com/andrewhani/image/upload/v1524501894/404/boat.svg" alt="Boat">
-            </div>
-            <div class="wave-3"></div>
-            <div class="wave-2"></div>
-            <div class="wave-1"></div>
-            <div class="wave-message">
-                <p>Có vẻ như bạn đã bị lạc</p>
-                <p>Nhấp vào hòn đảo để quay trở lại</p>
-            </div>
-        </div>
+<div class="noise"></div>
+<div class="overlay"></div>
+<div class="terminal">
+  <h1>Lỗi! <span class="errorcode">404</span></h1>
+  <p class="output">Trang bạn đang cố gắng truy cập không tồn tại.</p>
+  <p class="output">Xin hãy  <a href="https://genda.fakku.cc/">trở về trang chủ</a>.</p>
+  <p class="output">Cảm ơn bạn!</p>
+</div>
